@@ -3,7 +3,7 @@
    License: none (public domain)
 */
 
-* {
+*{
     box-sizing: border-box;
 }
 
@@ -34,6 +34,7 @@ footer, header, hgroup, menu, nav, section {
 }
 body {
 	line-height: 1;
+	border:1px solid red
 }
 ol, ul {
 	list-style: none;
