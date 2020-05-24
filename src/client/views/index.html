@@ -24,9 +24,22 @@
         <main>
             <section>
                 <form class="" onsubmit="return Client.handleSubmit(event)">
-                    <input id="name" type="text" name="input" value="" onblur="onBlur()" placeholder="Name">
-                    <input type="submit" name="" value="submit" onclick="return Client.handleSubmit(event)" onsubmit="return Client.handleSubmit(event)">
+                    <input id="name" type="text" name="input" value=""  placeholder="Name">
+                    <input type="submit" name="" value="submit" id ="submitbutton">
                 </form>
+                <table>
+                    <tr><td><label for ="l-polarity">Polarity:</label></td>
+                    <td><div id = "polarity"></div></td></tr>
+      
+                    <tr><td><label for ="l-subjectivity">Subjectivity:</label></td>
+                    <td> <div id ="subjectivity"></div></td></tr>
+      
+                    <tr><td> <label for ="l-polarity-confidence">Polarity Confidence:</date></td>
+                    <td>  <div id ="polarityCon"></div></td></tr>
+                    
+                    <tr> <td><label for ="l-sub-con">Subjectivity Confidence: </label></td>
+                    <td>  <div id ="sub-con"></div></td></tr>
+                </table>
             <section>
 
             <section>
