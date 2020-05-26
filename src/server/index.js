@@ -48,7 +48,7 @@ app.listen(8081, function () {
 
 /*app.get('/test', function (req, res) {
     res.send(mockAPIResponse)
-   /* console.log(res.body);
+   console.log(res.body);
    
     textapi.sentiment({
         'text': 'John is a very bad football player!'
@@ -57,24 +57,40 @@ app.listen(8081, function () {
           console.log(response);
         }
       });  
-    res.send(mockAPIResponse)*/
+    res.send(mockAPIResponse)
 
-/*})*/
+})*/
 const textArray =[];
 
 function PostuserText(req,res){
 
-    
-    console.log(req.body.UserText);
-    textapi.sentiment({
+   textapi.sentiment({
         'text': req.body.UserText
       }, function(error, response) {
         if (error === null) {
-          console.log(response);
+          details = {
+            textPolarity :response.polarity,
+            subjectivity : response.subjectivity,
+            text : response.text,
+            polarityConfidence :response.polarity_confidence,
+            subjectivityConfidence: response.subjectivity_confidence
+          }
+          textArray.push(details);
+          res.sendStatus(200);
         }
-      });  
-    res.send(200);
+      }); 
+     
+   
+   
    
 }
 
 app.post('/test',PostuserText)
+
+function getAylienData(req,res){
+  res.status(200).send(textArray[(textArray.length-1)]);
+    console.log(textArray[(textArray.length-1)]);
+
+}
+
+app.get('/test',getAylienData);

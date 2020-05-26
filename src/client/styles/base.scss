@@ -1,7 +1,12 @@
+$font-stack:    Helvetica, sans-serif;
+$primary-color:red;
+
 body {
     display: flex;
     flex-direction: column;
     min-height: 100vh;
+  font-size: large;
+    color :primary-color;
 }
 
 main {

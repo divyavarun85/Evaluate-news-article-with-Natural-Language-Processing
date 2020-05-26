@@ -1,15 +1,32 @@
 
 
 
-   document.getElementById('submitbutton').addEventListener('click',handleSubmit);
+document.getElementById('submitbutton').addEventListener('click',handleSubmit);
 
-const postData = async ( url = '', data = {})=>{
- 
-     const response = await fetch('http://localhost:8081/test' ,{
-       
-     method: 'POST', // *GET, POST, PUT, DELETE, etc.
-     credentials: 'same-origin', // include, *same-origin, omit
-     headers: {
+const retrieveAylienData = async (url = "",Text)=>{
+    
+    const getDetails = await fetch(url);
+   
+try {
+    
+   const nData = await getDetails.json();
+    console.log(nData);
+    document.getElementById('polarity').innerHTML = nData.textPolarity;
+    document.getElementById('subjectivity').innerHTML = nData.subjectivity;
+    document.getElementById('polarityCon').innerHTML = nData.polarityConfidence;
+    document.getElementById('sub-con').innerHTML = nData.subjectivityConfidence;
+    document.getElementById('results').innerHTML = nData.text;
+    }catch(error) {
+        console.log("i am error", error);
+          // appropriately handle the error
+     }
+ }
+
+ const postData = async ( url = '', data = {})=>{
+    const response = await fetch('http://localhost:8081/test' ,{
+    method: 'POST', // *GET, POST, PUT, DELETE, etc.
+    credentials: 'same-origin', // include, *same-origin, omit
+        headers: {
          'Content-Type': 'application/json',
      },
      body:JSON.stringify(data),
@@ -17,20 +34,27 @@ const postData = async ( url = '', data = {})=>{
      // body data type must match "Content-Type" header        
     });
    
-     try {
-         console.log('posti');
-            const newData = await response.json();
-             console.log(newData);
-            return newData
-            }catch(error) {
-            console.log("i am error", error);
+try {
+   const newData = await response;
+    return newData
+    }catch(error) {
+        console.log("i am error", error);
           // appropriately handle the error
      }
  }
+
  function handleSubmit() {
-   
+     event.preventDefault();
     var userText = document.getElementById('name').value;
-    postData('/test',{ UserText:userText }) ;
+    if(userText == ""){
+        alert("Enter Subject");
+      }else{
+    postData('/test',{ UserText:userText })
+    .then(function(){
+
+    retrieveAylienData('/test',userText)
+    });
+}
     
 }
     // check what text was put into the form field
