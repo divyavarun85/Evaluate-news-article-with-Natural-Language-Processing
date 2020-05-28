@@ -2,8 +2,8 @@
    v2.0 | 20110126
    License: none (public domain)
 */
-$primary-color:#FF0000;
-$main-color: red;
+
+
 
 *{
     box-sizing: border-box;
@@ -37,8 +37,9 @@ footer, header, hgroup, menu, nav, section {
 body {
 	line-height: 1;
 	/*border:1px solid red;*/
-	background: $primary-color;
-	color: $main-color;
+	background:#6495ED;
+	font-size: larger;
+	
 }
 ol, ul {
 	list-style: none;
@@ -53,8 +54,12 @@ q:before, q:after {
 }
 table {
 	border-collapse: collapse;
-	border-spacing: 0;
+	border-spacing:15px;
 }
 ul {
     list-style-type: none;
 }
+tr.row td{
+	line-height: 2em;
+	font-weight: 200;
+  }

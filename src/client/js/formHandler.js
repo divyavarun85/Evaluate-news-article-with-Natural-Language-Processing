@@ -1,7 +1,7 @@
 
 
 
-document.getElementById('submitbutton').addEventListener('click',handleSubmit);
+
 
 const retrieveAylienData = async (url = "",Text)=>{
     
@@ -16,6 +16,7 @@ try {
     document.getElementById('polarityCon').innerHTML = nData.polarityConfidence;
     document.getElementById('sub-con').innerHTML = nData.subjectivityConfidence;
     document.getElementById('results').innerHTML = nData.text;
+    
     }catch(error) {
         console.log("i am error", error);
           // appropriately handle the error
@@ -23,7 +24,7 @@ try {
  }
 
  const postData = async ( url = '', data = {})=>{
-    const response = await fetch('http://localhost:8081/test' ,{
+     const response = await fetch('http://localhost:8081/test' ,{
     method: 'POST', // *GET, POST, PUT, DELETE, etc.
     credentials: 'same-origin', // include, *same-origin, omit
         headers: {
@@ -36,7 +37,7 @@ try {
    
 try {
    const newData = await response;
-    return newData
+    return newData;
     }catch(error) {
         console.log("i am error", error);
           // appropriately handle the error
@@ -96,7 +97,8 @@ try {
     )*/
 
 
-
+    //document.getElementById('submitbutton').addEventListener('click',handleSubmit);
 export { handleSubmit,
-        postData
+        postData,
+        retrieveAylienData
 }

@@ -24,28 +24,28 @@
         <main>
             <section>
                 <form class="" onsubmit="Client.handleSubmit(event)" onsubmit="return false">
-                    <input id="name" type="text" name="input" value=""  placeholder="Name">
-                    <input type="submit" name="" value="submit" id ="submitbutton">
+                    <input id="name" type="text" name="input" value=""  placeholder="Name" pattern="[a-zA-Z0-9]">
+                    <input type="submit" name="" value="submit" id ="submitbutton" onclick="Client.handleSubmit(event)">
                 </form>
                 
             </section>
 
-            <section>
-                <strong>Form Results:</strong>
+            <section class = "ResSection">
+             <div> <strong>Article Entered:</strong></div>  
                 <div id="results"></div>
             </section>
-            <section id ="tableID">
+            <section>
                 <table>
-                    <tr><td><label for ="l-polarity">Polarity:</label></td>
+                    <tr class ="row"><td><label for ="l-polarity">Polarity:</label></td>
                     <td><div id = "polarity"></div></td></tr>
       
-                    <tr><td><label for ="l-subjectivity">Subjectivity:</label></td>
+                    <tr class ="row"><td><label for ="l-subjectivity">Subjectivity:</label></td>
                     <td> <div id ="subjectivity"></div></td></tr>
       
-                    <tr><td> <label for ="l-polarity-confidence">Polarity Confidence:</date></td>
+                    <tr class ="row"><td> <label for ="l-polarity-confidence">Polarity Confidence:</date></td>
                     <td>  <div id ="polarityCon"></div></td></tr>
                     
-                    <tr> <td><label for ="l-sub-con">Subjectivity Confidence: </label></td>
+                    <tr class ="row"> <td><label for ="l-sub-con">Subjectivity Confidence: </label></td>
                     <td>  <div id ="sub-con"></div></td></tr>
                 </table>
             </section>
