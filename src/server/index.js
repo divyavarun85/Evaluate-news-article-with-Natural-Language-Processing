@@ -46,20 +46,7 @@ app.listen(8081, function () {
     console.log('Example app listening on port 8081!')
 })
 
-/*app.get('/test', function (req, res) {
-    res.send(mockAPIResponse)
-   console.log(res.body);
-   
-    textapi.sentiment({
-        'text': 'John is a very bad football player!'
-      }, function(error, response) {
-        if (error === null) {
-          console.log(response);
-        }
-      });  
-    res.send(mockAPIResponse)
 
-})*/
 const textArray =[];
 
 function PostuserText(req,res){

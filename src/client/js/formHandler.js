@@ -50,54 +50,15 @@ try {
     if(userText == ""){
         alert("Enter Subject");
       }else{
-    postData('/test',{ UserText:userText })
+    postData('http://localhost:8081/test',{ UserText:userText })
     .then(function(){
 
-    retrieveAylienData('/test',userText)
+    retrieveAylienData('http://localhost:8081/test',userText)
     });
 }
     
 }
-    // check what text was put into the form field
-  /*  let formText = document.getElementById('name').value
-  
-    Client.checkForName(formText)
-
-    console.log("::: Form Submitted :::")
-    fetch('http://localhost:8081/test')
    
-    .then(res => res.json())
-    .then(function(res) {
-        console.log(res)
-        document.getElementById('results').innerHTML = res.message
-        return formText
-    }).then (function(formText){
-       
-        const postData  = async(url ='',data ={}) =>{
-            
-            const resData = await fetch('/test',{
-                
-                method: 'POST', // *GET, POST, PUT, DELETE, etc.
-                credentials: 'same-origin', // include, *same-origin, omit
-                headers: {
-                      'Content-Type': 'application/json',
-                  },
-                 
-                body: JSON.stringify(data),
-              })
-             
-              try{
-                 const newData = resData.status;
-                return newData;
-                } catch(error){
-                console.log("i am error", error);
-                  }   
-             
-    }
-    )*/
-
-
-    //document.getElementById('submitbutton').addEventListener('click',handleSubmit);
 export { handleSubmit,
         postData,
         retrieveAylienData
